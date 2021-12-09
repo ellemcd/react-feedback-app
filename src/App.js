@@ -6,11 +6,10 @@ import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 
-
 function App() {
 
   const [feedback, setFeedback] = useState(FeedbackData)
-  
+
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4()
     setFeedback([newFeedback, ...feedback])
@@ -21,8 +20,6 @@ function App() {
       setFeedback(feedback.filter((item) => item.id !== id ))
     }
   }
-
-
 
   return (
     <>
