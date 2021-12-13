@@ -4,8 +4,6 @@ import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 import FeedbackContext from '../context/FeedbackContext'
 
-
-
 function FeedbackForm() {
 
 	const [text, setText] = useState('')
@@ -40,19 +38,21 @@ function FeedbackForm() {
 	}
 
 	const handleSubmit = (e) => {
+
 		e.preventDefault()
+		
 		if(text.trim().length > 10) {
 			const newFeedback = {
 				text: text,
 				rating: rating,
 			}
 
-			if (feedbackEdit.edit == true){
+			if (feedbackEdit.edit === true){
 				updateFeedback(feedbackEdit.item.id, newFeedback)
 			} else {
 				addFeedback(newFeedback);
 			}
-			
+
 			setText('')
 		}
 	}
